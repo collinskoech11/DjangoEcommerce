@@ -48,20 +48,20 @@
             <div class="col-md-3 offset-md-4">
                 <ul class="pagination">
                     {% if product_objects.has_previous %}
-                        <li class="page-item">
-                            <a href="?page={{ product_objects.previous_page_number }}">Previous</a>
+                        <li class="page-item" style="margin-right:10px;">
+                            <a class="page-link" href="?page={{ product_objects.previous_page_number }}">Previous</a>
                         </li>
                     {% endif %}
                         
 
-                        <li class="page-item">
-                            <a href="?page={{ product_objects.number }}">Previous</a>
+                        <li class="page-item active" style="margin-right:10px;">
+                            <a class="page-link" href="?page={{ product_objects.number }}">{{product_objects.number}}</a>
                         </li>
 
 
                     {% if product_objects.has_next %}
                         <li class="page-item">
-                            <a href="?page={{ product_objects.next_page_number }}">Next</a>
+                            <a class="page-link" href="?page={{ product_objects.next_page_number }}">Next</a>
                         </li>
                     {% endif %}
                 </ul>

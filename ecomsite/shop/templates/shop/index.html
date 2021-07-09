@@ -72,7 +72,6 @@
     </div>
     <script type="text/javascript">
         console.log('this is working');
-
         if(localStorage.getItem('cart')==null){
             var cart = {};
         }
@@ -81,14 +80,16 @@
         }
 
         $(document).on('click','.atc',function(){
-            console.log("the add to cart button is clicked ")
+            
             var item_id = this.id.toString();
             console.log(item_id);
-
-            if(cart[item_id] !=undefined){
-                cart[item_id] = cart[item_id] + 1;
+            if(cart[1]!=undefined){
+                cart[1] = cart[1] + 1;
             }
-        });
+           
+
+            
+            });
     </script>
 </body>
 </html>

@@ -140,6 +140,16 @@
             $('[data-toggle="popover"]').popover()
             document.getElementById("cart").setAttribute('data-content','<h2>This is the cart content</h2>')
         })
+        function DisplayCart(cart){
+            var cartString = "";
+            cartString += "<h2>This is the cart content</h2>";
+            var cartIndex = 1;
+            for(var x in cart){
+                cartString += cartIndex;
+                cartString += document.getElementById("nm"+x).innerHTML + "Qty : " + cart[x];
+                cartIndex+=1;
+            }
+        }
     </script>
 </html>
 

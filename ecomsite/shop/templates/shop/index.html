@@ -30,7 +30,7 @@
                           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <button id="cart" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+                            <button id="cart" data-html="true" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
                             sagittis lacus vel augue laoreet rutrum faucibus.">
                              cart(0)
                             </button>
@@ -74,7 +74,7 @@
                     <div class="card">
                         <img src="{{ product.image }}" alt="" class="card-img">
                         <div class="card-body">
-                            <div class="card-title" style="font-weight:900">
+                            <div id="nm{{ product.id }}" class="card-title" style="font-weight:900">
                                 {{ product.title }}
                             </div>
                             <div class="card-text" style="color:green; font-weight:800;">
@@ -138,6 +138,7 @@
         });
         $(function () {
             $('[data-toggle="popover"]').popover()
+            document.getElementById("cart").setAttribute('data-content','<h2>This is the cart content</h2>')
         })
     </script>
 </html>

@@ -74,7 +74,7 @@
                     <div class="card">
                         <img src="{{ product.image }}" alt="" class="card-img">
                         <div class="card-body">
-                            <div id="nm{{ product.id }}" class="card-title" style="font-weight:900">
+                            <div id="nm{{product.id}}" class="card-title" style="font-weight:900">
                                 {{ product.title }}
                             </div>
                             <div class="card-text" style="color:green; font-weight:800;">
@@ -136,19 +136,20 @@
             localStorage.setItem('cart',JSON.stringify(cart));
             document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length+")"; 
         });
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-            document.getElementById("cart").setAttribute('data-content','<h2>This is the cart content</h2>')
-        })
+        DisplayCart(cart);
         function DisplayCart(cart){
-            var cartString = "";
+            var cartString ="";
             cartString += "<h2>This is the cart content</h2>";
             var cartIndex = 1;
             for(var x in cart){
                 cartString += cartIndex;
-                cartString += document.getElementById("nm"+x).innerHTML + "Qty : " + cart[x];
+                cartString += document.getElementById("nm"+x).innerHTML + "Qty : " + cart[x] + "<br/>";
                 cartIndex+=1;
             }
+
+            cartString += "<a href='/checkout'><button class='btn btn-warning' id='checkout'>checkout</button></a>";
+            document.getElementById("cart").setAttribute('data-content',cartString);
+            $('[data-toggle="popover"]').popover();
         }
     </script>
 </html>

@@ -75,11 +75,9 @@
                         <img src="{{ product.image }}" alt="" class="card-img">
                         <div class="card-body">
                             <div id="nm{{product.id}}" class="card-title" style="font-weight:900">{{ product.title }}</div>
-                            <div class="card-text" style="color:green; font-weight:800;">
-                               Ksh {{ product.price }}
-                            </div>
-                            <a href="/{{ product.id}}" class="btn btn-warning">Details</a>
-                            <button id="{{ product.id  }}" class="btn atc btn-warning">Add to Cart</button>
+                            <div id="price{{ product.id }}" class="card-text" style="color:green; font-weight:800;">{{ product.price }}</div>
+                            <a href="/{{ product.id }}" class="btn btn-warning">Details</a>
+                            <button id="{{ product.id }}" class="btn atc btn-warning">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -127,12 +125,13 @@
                 if(cart[item_id] !=undefined){
                     quantity = cart[item_id][0] + 1;
                     cart[item_id][0] = quantity;
-
+                    cart[item_id][2] = cart[item_id][2] + parseFloat(document.getElementById("price"+item_id).innerHtml);
                 }
                 else{
                     quantity = 1;
+                    price = parseFloat(document.getElementById("price"+item_id).innerHtml);
                     name = document.getElementById("nm"+item_id).innerHTML;
-                    cart[item_id] = [quantity,name];
+                    cart[item_id] = [quantity,name,price];
 
                     
                 }

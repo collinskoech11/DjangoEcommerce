@@ -68,10 +68,11 @@
     cart = JSON.parse(localStorage.getItem('cart'));
   }
   for(item in cart){
-    let name = cart[item][1];
     let quantity =  cart[item][0];
+    let name = cart[item][1];
+    let price = cart[item][2];
 
-    itemString = `<li class="list-group-item">${name}-${quantity}</li>`
+    itemString = `<li class="list-group-item">${name}<span>${quantity}</span><span class="badge badge-warning badge-pill">${price}</span></li>`
     $('#item_list').append(itemString);
   }
   $('#items').val(JSON.stringify(cart));

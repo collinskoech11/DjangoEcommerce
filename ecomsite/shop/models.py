@@ -23,8 +23,3 @@ class Order(models.Model):
     zipcode = models.CharField(max_length=200)
     total = models.CharField(max_length=200)
 
-class Sale(models.Model):
-    buyer_name = models.CharField(max_length=200)
-    sale_type = models.CharField(max_length=200)
-    quantity = models.CharField(max_length=200)
-    subtotal = models.CharField(max_length=200)
